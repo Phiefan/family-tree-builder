@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "description": "An interactive web-based family tree builder",
   "scripts": {
+    "start": "live-server --no-browser src",
     "test": "cucumber-js"
   },
   "license": "MIT",
   "devDependencies": {
-    "@cucumber/cucumber": "^13.2.1"
+    "@cucumber/cucumber": "^13.2.1",
+    "live-server": "^1.2.2"
   }
 }
