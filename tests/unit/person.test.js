@@ -1,3 +1,4 @@
+import { Person } from "../../src/js/Person.js";
 
 describe('Person', () => {
     let person;
@@ -28,7 +29,7 @@ describe('Person', () => {
             });
 
             test('is read-only', ()=>{
-                person.fullName = 'Richard Roes';
+                person.fullName = 'Richard Roe';
                 
                 expect(person.fullName).toBe('John Doe');
             });
