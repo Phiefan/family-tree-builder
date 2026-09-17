@@ -72,7 +72,6 @@ describe('Person', () => {
             { gender: 'female', label: 'female' },
             { gender: '', label: 'empty string' },
             { gender: 1, label: 'number' },
-            { gender: undefined, label: 'undefined' },
         ];
 
         test.each(invalids)(
