@@ -14,6 +14,18 @@ It is responsible for maintaining the consistency of its own relationship data.
 | `children` | `Person[]` | References to the person's children |
 | `spouse` | `Person \| null` | Reference to the person's spouse |
 
+## Constructor 
+A `Person` is created with a first name and last name.
+
+Gender may optionally be specified when the person is created. 
+If no gender is specified, `gender` defaults to `null`.
+
+```js
+new Person (firstName, lastName, gender)
+```
+The gender parameter accepts **f**, **m**, **d**, or `null`. 
+Invalid gender values are rejected.
+
 ## Getters
 | Getter | Return Type | Purpose |
 | :--- | :--- | :--- |
@@ -78,12 +90,19 @@ Gender is represented using one of the following values:
 | **f** | Female |
 | **m** | Male |
 | **d** | Other |
+| `null` | Not specified |
 
-Gender may initially be unset.
+Gender may be specified when the person is created.
 
-Only **f**, **m**, or **d** are accepted as gender values.
+If no gender is specified when the person is created, `gender` defaults to `null`.
+
+Only **f**, **m**, **d**, or `null` are accepted as gender values.
+
+Invalid gender values are rejected.
 
 Gender can be changed after the person has been created.
+
+Gender can be unset by assigning `null`.
 
 ## Acceptance Criteria
 ### *Personal Information*
@@ -94,10 +113,13 @@ Gender can be changed after the person has been created.
 - [ ] Changes to `firstName` or `lastName` are reflected in `fullName`
 
 ### *Gender*
-- [ ] A person's gender can be **f**, **m**, or **d**
-- [ ] No other gender values are accepted
-- [ ] Gender can initially be unset
+- [ ] A person's gender can be **f**, **m**, **d**, or `null`
+- [ ] Gender can be specified when a person is created
+- [ ] If gender is not specified when a person is created, it defaults to `null`
 - [ ] Gender can be changed after the person has been created
+- [ ] Gender can be unset by assigning `null`
+- [ ] Only **f**, **m**, **d**, or `null` are accepted as gender values
+- [ ] Invalid gender values are rejected
 
 ### *Parent Relationships*
 - [ ] A person can have zero, one, or two parents
