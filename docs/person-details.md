@@ -90,7 +90,7 @@ Gender can be changed after the person has been created.
 - [ ] A person has a `firstName`
 - [ ] A person has a `lastName`
 - [ ] A person's `fullName` returns `firstName` followed by `lastName`
-- [ ] `fullName` cannot be directly assigned to
+- [ ] `fullName` is read-only. Assigning a value to `fullName` has no effect
 - [ ] Changes to `firstName` or `lastName` are reflected in `fullName`
 
 ### *Gender*

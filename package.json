@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "live-server --no-browser --port=3000 src",
-    "test": "cucumber-js",
-    "test:e2e": "playwright test"
+    "test": "jest",
+    "test:acceptance": "cucumber-js"
   },
   "license": "MIT",
   "devDependencies": {
     "@cucumber/cucumber": "^13.2.1",
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.2.0",
+    "jest": "^30.5.1",
     "live-server": "^1.2.2"
   }
 }
