@@ -1,11 +1,12 @@
 {
   "name": "family-tree-builder",
   "version": "0.1.0",
+  "type": "module",
   "description": "An interactive web-based family tree builder",
   "main": "index.js",
   "scripts": {
     "start": "live-server --no-browser --port=3000 src",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:acceptance": "cucumber-js"
   },
   "license": "MIT",
