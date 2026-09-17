@@ -24,7 +24,7 @@ It is responsible for maintaining the consistency of its own relationship data.
 
 Changes to either `firstName` or `lastName` are therefore reflected automatically in `fullName`.
 
-`fullName` cannot be assigned directly.
+`fullName` is read-only. Assigning a value to `fullName` has no effect.
 
 ## Methods
 | Method | Parameters | Purpose |
