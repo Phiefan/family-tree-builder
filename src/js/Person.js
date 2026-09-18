@@ -5,6 +5,7 @@ export class Person {
         this.gender = gender;
 
         this.parents = [];
+        this.children = [];
     }
 
     get fullName() {
@@ -12,7 +13,7 @@ export class Person {
     }
 
     set fullName(_) {
-        // Intentionally ignored
+        // No-op
     }
 
     get gender() {
@@ -25,5 +26,23 @@ export class Person {
         }
 
         this._gender = value;
+    }
+
+    addParent(parent) {
+        if (this.parents.includes(parent)) {
+            return;
+        }
+
+        if (this.parents.length >= 2) {
+            throw new RangeError('Person can only have two parents');
+        }
+
+        this.parents.push(parent);
+        parent.children.push(this);
+    }
+
+    removeParent(parent) {
+        this.parents.splice(this.parents.indexOf(parent), 1);
+        parent.children.splice(parent.children.indexOf(this), 1);
     }
 }
