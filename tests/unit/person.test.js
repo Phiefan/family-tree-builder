@@ -149,8 +149,8 @@ describe('Person', () => {
             person.addParent(parent1);
             person.addParent(parent1);
 
-            expect(person.parents).toHaveLenght(1);
-            expect(parent1.children).toHaveLenght(1);
+            expect(person.parents).toHaveLength(1)
+            expect(parent1.children).toHaveLength(1)
         })
 
         test('rejecting a third parent does not modify relationship data', () => {
