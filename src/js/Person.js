@@ -3,6 +3,8 @@ export class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+
+        this.parents = [];
     }
 
     get fullName() {
