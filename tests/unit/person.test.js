@@ -92,5 +92,81 @@ describe('Person', () => {
             }
         );
     });
-    
+
+    describe('Parent Relationships', () => {
+        let parent1, parent2, parent3;
+
+        beforeEach(() => {
+            parent1 = new Person('Richard', 'Doe', 'm');
+            parent2 = new Person('Jane', 'Doe', 'f');
+            parent3 = new Person('Jane', 'Roe');
+        });
+
+        test('allows zero parents', () => {
+            expect(person.parents).toHaveLength(0)
+        });
+
+        test('allows one parent', () => {
+            person.addParent(parent1);
+
+            expect(person.parents).toContain(parent1);
+        });
+
+        test('allows two parents', () => {
+            person.addParent(parent1);
+            person.addParent(parent2);
+
+            expect(person.parents).toEqual(
+                expect.arrayContaining([parent1, parent2])
+            );
+        });
+
+        test('rejects a third parent', () => {
+            person.addParent(parent1);
+            person.addParent(parent2);
+
+            expect(() => {
+                person.addParent(parent3);
+            }).toThrow();
+        });
+
+        test("adding a parent also adds the person to parent's children", () => {
+            person.addParent(parent1);
+
+            expect(parent1.children).toContain(person);
+        });
+
+        test("removing a parent also removes the person from parent's children", () => {
+            person.addParent(parent1);
+
+            person.removeParent(parent1);
+
+            expect(person.parents).not.toContain(parent1);
+            expect(parent1.children).not.toContain(person);
+        });
+
+        test('prevents duplicate parent relationships', () => {
+            person.addParent(parent1);
+            person.addParent(parent1);
+
+            expect(person.parents).toHaveLenght(1);
+            expect(parent1.children).toHaveLenght(1);
+        })
+
+        test('rejecting a third parent does not modify relationship data', () => {
+            person.addParent(parent1);
+            person.addParent(parent2);
+
+            expect(() => {
+                person.addParent(parent3);
+            }).toThrow();
+
+            expect(person.parents).toEqual(
+                expect.arrayContaining([parent1, parent2])
+            );
+            expect(person.parents).not.toContain(parent3);
+            expect(parent3.children).not.toContain(person);
+        });
+    });
+
 });
